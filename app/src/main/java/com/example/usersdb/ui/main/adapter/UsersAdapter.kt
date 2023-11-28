@@ -31,7 +31,7 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
     lateinit var binding: UserItemLayoutBinding
 
 
-     var listener : userClickListiner? = null
+     lateinit var listener : userClickListiner
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersAdapter.MyViewHolder {
         binding = UserItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -65,22 +65,12 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
                 familyTxt.text = item.family
                 ageTxt.text = item.age.toString()
                 nationalNumberTxt.text = item.nationalNumber.toString()
-
                 checkBox2.setOnCheckedChangeListener { CheckBox, isCheked ->
                     if (isCheked == true){
                         list.add(item.id)
                     }
-
                         listener?.users(list)
                 }
-
-
-//                imageView.setOnClickListener {
-//                    listener?.onDelete(list)
-//                    repository.deleteItems(list)
-//                }
-
-
                 root.setOnClickListener {
                     val intent = Intent(context, UpdateActivity::class.java)
                     intent.putExtra("bundle_user_id", item.id)
@@ -88,14 +78,8 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
                     context.startActivity(intent)
                 }
             }
-
         }
-
-
     }
-
-
-
     interface userClickListiner {
         fun users (users: MutableList<Int?>)
     }

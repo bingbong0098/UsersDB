@@ -30,9 +30,8 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner {
     @Inject
     lateinit var userDao: UserDao
 
-//    val list = mutableListOf<Int>()
 
-     var deleteList: List<Int?> = mutableListOf()
+    var deleteList: List<Int?> = mutableListOf()
 
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,8 +44,11 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner {
 
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = usersAdapter
+                usersAdapter.listener = this@MainActivity
             }
-            usersAdapter.differ.submitList(userDao.getAllUsers())
+            repository.getAllUser().observe(this@MainActivity) {
+                usersAdapter.differ.submitList(it)
+            }
 
             addBtn.setOnClickListener {
                 startActivity(Intent(this@MainActivity, AddUserActivity::class.java))
@@ -58,8 +60,8 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner {
             }
         }
     }
+
     override fun users(users: MutableList<Int?>) {
-//        list.add(userEntity.id!!)
         deleteList = users
         doSomethingWithDataList()
     }

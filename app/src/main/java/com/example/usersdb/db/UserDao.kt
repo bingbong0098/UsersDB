@@ -1,5 +1,6 @@
 package com.example.usersdb.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -21,7 +22,7 @@ interface UserDao {
 
 
     @Query("SELECT * FROM TABLE_NAME")
-    fun getAllUsers() : MutableList<UserEntity>
+    fun getAllUsers() : LiveData<MutableList<UserEntity>>
 
 
     @Query("SELECT * FROM TABLE_NAME WHERE id LIKE :id")

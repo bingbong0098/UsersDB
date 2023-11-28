@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginVertical="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_marginVertical="2dp"
+        android:elevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="محمد"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                app:layout_constraintEnd_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سن :"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:text="نام :"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="170dp"
+                android:text="نام خانوادگی :"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/family_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+
+                android:textStyle="bold"
+                android:text="گوهری"
+                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                app:layout_constraintEnd_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/age_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textStyle="bold"
+                android:layout_marginEnd="16dp"
+                android:text="27"
+                app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                app:layout_constraintEnd_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="شماره ملی :"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/national_number_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="4560204837"
+
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                app:layout_constraintEnd_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBox2"
+                app:layout_constraintStart_toEndOf="@+id/checkBox2"
+                app:layout_constraintTop_toTopOf="@id/checkBox2"
+                app:srcCompat="@android:drawable/btn_dialog" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

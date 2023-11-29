@@ -40,6 +40,8 @@ class AddUserActivity : AppCompatActivity() {
 
                 startActivity(Intent(this@AddUserActivity,MainActivity::class.java))
 
+                finish()
+
             }
 
         }

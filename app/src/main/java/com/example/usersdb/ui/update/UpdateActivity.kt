@@ -50,6 +50,7 @@ class UpdateActivity : AppCompatActivity() {
                 }
                 repository.updateUser(userEntity)
                 startActivity(Intent(this@UpdateActivity,MainActivity::class.java))
+                finish()
             }
 
             deleteBtn.setOnClickListener {
@@ -57,6 +58,7 @@ class UpdateActivity : AppCompatActivity() {
 //                repository.deletetUser(repository.getUser(userId))
                 repository.deleteUser(userEntity)
                 startActivity(Intent(this@UpdateActivity,MainActivity::class.java))
+                finish()
 
             }
         }

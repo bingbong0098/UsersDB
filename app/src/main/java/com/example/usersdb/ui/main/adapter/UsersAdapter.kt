@@ -30,8 +30,7 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
 
     lateinit var binding: UserItemLayoutBinding
 
-
-     lateinit var listener : userClickListiner
+    lateinit var listener : userClickListiner
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersAdapter.MyViewHolder {
         binding = UserItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)

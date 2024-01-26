@@ -5,20 +5,20 @@
 
 
         <!-- Text color for normal text -->
-        <item name="android:textColor">#323232</item>
+        <item name="android:textColor">@color/textColor</item>
 
         <!-- EditText text color -->
-        <item name="android:editTextColor">#CCCCCC</item>
+        <item name="android:editTextColor">@color/editTextColor</item>
 
         <!-- EditText hint color -->
-        <item name="android:textColorHint">#efefef</item>
+        <item name="android:textColorHint">@color/colorHint</item>
 
         <!-- Button color -->
         <item name="android:colorButtonNormal">@color/colorButtonLight</item>
         <item name="android:button">@color/colorButtonLight</item>
 
         <!-- Switch button color -->
-        <item name="colorControlActivated">#FFFF00</item>
+        <item name="colorControlActivated">@color/colorSwitchLight</item>
         <item name="colorControlNormal">@color/colorSwitchLight</item>
 
 

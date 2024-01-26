@@ -2,24 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="darkText">#232323</color>
-    <color name="darkHint">#8e8e8e</color>
-    <color name="darkButtonGreen">#3BBA40</color>
-    <color name="lightText">#323232</color>
-    <color name="lightHint">#efefef</color>
-    <color name="lightButtonYellow">#FFEB3B</color>
 
 
-
-
-    <color name="colorPrimary">#00FF00</color>
-    <color name="colorPrimaryDark">#009900</color>
 
     <color name="colorButton">#00FF00</color>
     <color name="colorSwitch">#00FF00</color>
-
+    <color name="editTextColorDark">#232323</color>
+    <color name="textColorHint">#8e8e8e</color>
     <!-- Light theme colors -->
     <color name="colorButtonLight">#FFFF00</color>
     <color name="colorSwitchLight">#FFFF00</color>
+    <color name="colorHint">#756A6A</color>
+    <color name="textColor">#323232</color>
+    <color name="editTextColor">#CCCCCC</color>
 
 </resources>

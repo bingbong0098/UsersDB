@@ -20,9 +20,6 @@ import javax.inject.Inject
 class UpdateActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
 
     @Inject
-    lateinit var repository: UserRepository
-
-    @Inject
     lateinit var userEntity: UserEntity
 
     val viewModel: UpdateViewModel by viewModels()
@@ -57,11 +54,7 @@ class UpdateActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
 
             }
 
-
-
-
             viewModel.getUser(userId)
-
 
             viewModel.userItem.observe(this@UpdateActivity){
                 nameEdt.setText(it.name)
@@ -71,10 +64,6 @@ class UpdateActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
                 dateTxt.text = it.date
 
             }
-//            familyEdt.setText(repository.getUser(userId).family.toString())
-//            ageEdt.setText(repository.getUser(userId).age.toString())
-//            nationalNumberEdt.setText(repository.getUser(userId).nationalNumber.toString())
-//            dateTxt.setText(repository.getUser(userId).date.toString())
 
             updateBtn.setOnClickListener {
 
@@ -87,7 +76,7 @@ class UpdateActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
                     date = dateText
 
                 }
-                repository.updateUser(userEntity)
+                viewModel.updateUser(userEntity)
                 startActivity(Intent(this@UpdateActivity,MainActivity::class.java))
                 finish()
             }
@@ -95,20 +84,15 @@ class UpdateActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
             deleteBtn.setOnClickListener {
                 userEntity.id = userId
 //                repository.deletetUser(repository.getUser(userId))
-                repository.deleteUser(userEntity)
+                viewModel.deleteUser(userEntity)
                 startActivity(Intent(this@UpdateActivity,MainActivity::class.java))
                 finish()
-
             }
         }
-
-
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         dateText = "$year / ${month + 1} / $dayOfMonth"
         binding.dateTxt.text = dateText
     }
-
-
 }

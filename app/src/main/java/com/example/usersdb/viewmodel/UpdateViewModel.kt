@@ -21,4 +21,13 @@ class UpdateViewModel @Inject constructor(val repository: UserRepository) : View
 
     }
 
+    fun updateUser(user : UserEntity) = viewModelScope.launch {
+        repository.updateUser(user)
+    }
+
+
+    fun deleteUser(user : UserEntity) = viewModelScope.launch {
+        repository.deleteUser(user)
+    }
+
 }

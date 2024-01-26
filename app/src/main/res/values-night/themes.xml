@@ -5,13 +5,13 @@
 
 
         <!-- Text color for normal text -->
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">@color/white</item>
 
         <!-- EditText text color -->
-        <item name="android:editTextColor">#232323</item>
+        <item name="android:editTextColor">@color/editTextColorDark</item>
 
-        <!-- EditText hint (placeholder) color -->
-        <item name="android:textColorHint">#8e8e8e</item>
+        <!-- EditText hint color -->
+        <item name="android:textColorHint">@color/textColorHint</item>
 
         <!-- Button color -->
         <item name="android:colorButtonNormal">@color/colorSwitch</item>

@@ -69,6 +69,8 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
                 checkBox2.setOnCheckedChangeListener { CheckBox, isCheked ->
                     if (isCheked == true){
                         list.add(item.id)
+                    }else if (!isCheked){
+                        list.remove(item.id)
                     }
                         listener?.users(list)
                 }

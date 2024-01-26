@@ -67,4 +67,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 
 
+    // date picker farsi
+//    implementation 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
+//    implementation 'com.github.aliab:PersianDatePicker:1.2'
 }

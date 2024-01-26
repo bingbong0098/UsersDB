@@ -16,5 +16,7 @@ data class UserEntity(
 
     var age: String? = "",
 
-    var nationalNumber: String? = ""
+    var nationalNumber: String? = "",
+
+    var date : String? = ""
 )

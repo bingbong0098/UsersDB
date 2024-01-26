@@ -135,4 +135,26 @@
         app:layout_constraintTop_toBottomOf="@+id/nationalNumberCard"
         app:tint="@color/white" />
 
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/dateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
+        app:layout_constraintTop_toBottomOf="@+id/nationalNumberCard"
+        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+
+    <TextView
+        android:id="@+id/dateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/date"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dateBtn"
+        app:layout_constraintEnd_toStartOf="@+id/dateBtn"
+        app:layout_constraintTop_toTopOf="@+id/dateBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

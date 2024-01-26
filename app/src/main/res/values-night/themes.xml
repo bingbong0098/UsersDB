@@ -2,6 +2,30 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.UsersDB" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
+
+
+        <!-- Text color for normal text -->
+        <item name="android:textColor">#FFFFFF</item>
+
+        <!-- EditText text color -->
+        <item name="android:editTextColor">#232323</item>
+
+        <!-- EditText hint (placeholder) color -->
+        <item name="android:textColorHint">#8e8e8e</item>
+
+        <!-- Button color -->
+        <item name="android:colorButtonNormal">@color/colorSwitch</item>
+
+        <!-- Switch button color -->
+        <item name="colorControlActivated">@color/colorSwitch</item>
+        <item name="colorControlNormal">@color/colorSwitch</item>
+
+
+
+
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+
+
 </resources>

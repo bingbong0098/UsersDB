@@ -3,6 +3,7 @@ package com.example.usersdb.ui.main.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.icu.util.Calendar
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -61,6 +62,7 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
 
             binding.apply {
                 nameTxt.text = item.name
+                dateBtn.text = item.date
                 familyTxt.text = item.family
                 ageTxt.text = item.age.toString()
                 nationalNumberTxt.text = item.nationalNumber.toString()

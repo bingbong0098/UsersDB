@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">یوزر</string>
+    <string name="family">نام خانوادگی</string>
+    <string name="name">نام</string>
+    <string name="national_number">شماره ملی</string>
+    <string name="age">سن</string>
+    <string name="date">تاریخ</string>
+</resources>

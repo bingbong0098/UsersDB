@@ -25,7 +25,7 @@ import javax.inject.Singleton
 class UsersAdapter @Inject constructor(@ApplicationContext val context: Context) :
     RecyclerView.Adapter<UsersAdapter.MyViewHolder>() {
 
-
+    lateinit var activityFinishListener: ActivityFinishListener
     @Inject
     lateinit var repository: UserRepository
 
@@ -79,12 +79,17 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
                     intent.putExtra("bundle_user_id", item.id)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     context.startActivity(intent)
+                    activityFinishListener.finishActivity()
                 }
             }
         }
     }
     interface userClickListiner {
         fun users (users: MutableList<Int?>)
+    }
+
+    interface ActivityFinishListener {
+        fun finishActivity()
     }
 
 

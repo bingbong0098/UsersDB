@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.ColorStateList
+import android.content.res.Configuration
 import android.media.MediaFormat.KEY_LANGUAGE
 import android.os.Bundle
 import android.util.Log
@@ -28,7 +29,7 @@ import javax.inject.Inject
 
 @Suppress("DEPRECATION", "UNREACHABLE_CODE")
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner {
+class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner,UsersAdapter.ActivityFinishListener {
 
     @Inject
     lateinit var usersAdapter: UsersAdapter
@@ -71,22 +72,28 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner {
             config.locale = locale
             resources.updateConfiguration(config, resources.displayMetrics)
 
+            val configuration = resources.configuration
+            if (configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_NO) {
+                setButtonYellow()
+                switch1?.isChecked = false
+            } else {
+                setButtonGreen()
+                switch1?.isChecked = true
+            }
 
             switch1?.setOnCheckedChangeListener { buttonView, isChecked ->
 
                 if (isChecked){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//                    editor.putBoolean("KEY_THEME", true)
-                    langBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonLight))
-                    addBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonLight))
-                    deleteBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonLight))
-
-                }else{
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 //                    editor.putBoolean("KEY_THEME", false)
-                    langBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorSwitch))
-                    addBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorSwitch))
-                    deleteBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorSwitch))
+                    setButtonGreen()
+
+                }else if (!isChecked){
+
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//                    editor.putBoolean("KEY_THEME", true)
+                    setButtonYellow()
+
                 }
             }
 
@@ -102,6 +109,7 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = usersAdapter
                 usersAdapter.listener = this@MainActivity
+                usersAdapter.activityFinishListener = this@MainActivity
 
             }
             viewModel.allUsers().observe(this@MainActivity) {
@@ -149,4 +157,23 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner {
     }
 
     private fun getCurrentLanguage() = prefs.getString("KEY_LANGUAGE", "")
+    override fun finishActivity() {
+        finish()
+    }
+
+    fun setButtonGreen(){
+        binding.apply {
+            langBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorSwitch))
+            addBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorSwitch))
+            deleteBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorSwitch))
+        }
+    }
+
+    fun setButtonYellow(){
+        binding.apply {
+            langBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonLight))
+            addBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonLight))
+            deleteBtn.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonLight))
+        }
+    }
 }

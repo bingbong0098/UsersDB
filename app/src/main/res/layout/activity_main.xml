@@ -61,7 +61,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:checked="true"
         app:layout_constraintBottom_toBottomOf="@+id/delete_btn"
         app:layout_constraintStart_toEndOf="@+id/delete_btn"
         app:layout_constraintTop_toTopOf="@+id/delete_btn"

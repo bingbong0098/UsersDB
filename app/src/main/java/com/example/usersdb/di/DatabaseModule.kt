@@ -31,5 +31,4 @@ object DatabaseModule {
     @Provides
     fun provideEntity() = UserEntity()
 
-
 }

@@ -63,8 +63,6 @@ class AddUserActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
                 userEntity.date = dateText
                 viewModel.setUserItem(userEntity)
 
-                startActivity(Intent(this@AddUserActivity, MainActivity::class.java))
-
                 finish()
 
             }

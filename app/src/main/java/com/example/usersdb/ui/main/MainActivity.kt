@@ -29,7 +29,7 @@ import javax.inject.Inject
 
 @Suppress("DEPRECATION", "UNREACHABLE_CODE")
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner,UsersAdapter.ActivityFinishListener {
+class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner {
 
     @Inject
     lateinit var usersAdapter: UsersAdapter
@@ -109,7 +109,6 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner,UsersAd
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = usersAdapter
                 usersAdapter.listener = this@MainActivity
-                usersAdapter.activityFinishListener = this@MainActivity
 
             }
             viewModel.allUsers().observe(this@MainActivity) {
@@ -118,7 +117,6 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner,UsersAd
 
             addBtn.setOnClickListener {
                 startActivity(Intent(this@MainActivity, AddUserActivity::class.java))
-                finish()
             }
 
             deleteBtn.setOnClickListener {
@@ -157,9 +155,8 @@ class MainActivity : AppCompatActivity(), UsersAdapter.userClickListiner,UsersAd
     }
 
     private fun getCurrentLanguage() = prefs.getString("KEY_LANGUAGE", "")
-    override fun finishActivity() {
-        finish()
-    }
+
+
 
     fun setButtonGreen(){
         binding.apply {

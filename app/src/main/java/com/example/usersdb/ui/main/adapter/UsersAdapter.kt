@@ -25,7 +25,6 @@ import javax.inject.Singleton
 class UsersAdapter @Inject constructor(@ApplicationContext val context: Context) :
     RecyclerView.Adapter<UsersAdapter.MyViewHolder>() {
 
-    lateinit var activityFinishListener: ActivityFinishListener
     @Inject
     lateinit var repository: UserRepository
 
@@ -67,9 +66,9 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
                 ageTxt.text = item.age.toString()
                 nationalNumberTxt.text = item.nationalNumber.toString()
                 checkBox2.setOnCheckedChangeListener { CheckBox, isCheked ->
-                    if (isCheked == true){
+                    if (isCheked){
                         list.add(item.id)
-                    }else if (!isCheked){
+                    }else {
                         list.remove(item.id)
                     }
                         listener?.users(list)
@@ -79,7 +78,6 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
                     intent.putExtra("bundle_user_id", item.id)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     context.startActivity(intent)
-                    activityFinishListener.finishActivity()
                 }
             }
         }
@@ -88,9 +86,6 @@ class UsersAdapter @Inject constructor(@ApplicationContext val context: Context)
         fun users (users: MutableList<Int?>)
     }
 
-    interface ActivityFinishListener {
-        fun finishActivity()
-    }
 
 
     private val differCallback = object : DiffUtil.ItemCallback<UserEntity>() {

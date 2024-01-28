@@ -77,15 +77,12 @@ class UpdateActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
 
                 }
                 viewModel.updateUser(userEntity)
-                startActivity(Intent(this@UpdateActivity,MainActivity::class.java))
                 finish()
             }
 
             deleteBtn.setOnClickListener {
                 userEntity.id = userId
-//                repository.deletetUser(repository.getUser(userId))
                 viewModel.deleteUser(userEntity)
-                startActivity(Intent(this@UpdateActivity,MainActivity::class.java))
                 finish()
             }
         }
